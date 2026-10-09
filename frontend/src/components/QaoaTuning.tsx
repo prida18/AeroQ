@@ -24,14 +24,15 @@ export const QaoaTuning: React.FC<QaoaTuningProps> = ({
   return (
     <div className="w-full bg-white text-slate-900 rounded-[24px] p-4 shadow-xl border border-slate-900 flex flex-col gap-2.5 font-sans relative select-none">
       {/* Title with Google Material Icon AFTER the headline */}
-      <div className="flex items-center justify-center gap-2">
-        <h2 className="text-2xl font-medium tracking-tight text-slate-800">
+      <div className="flex items-center justify-center gap-1.5">
+        <h2 className="text-xl font-medium tracking-tight text-slate-800">
           Qiskit QAOA Tuning
         </h2>
-        <span className="material-symbols-outlined text-[22px] text-slate-800 select-none leading-none">
+        <span className="material-symbols-outlined text-[20px] text-slate-800 select-none leading-none">
           tune
         </span>
       </div>
+
 
       {/* Aircraft Model Selector */}
       <div className="flex flex-col gap-1 pt-1 border-t border-slate-100">

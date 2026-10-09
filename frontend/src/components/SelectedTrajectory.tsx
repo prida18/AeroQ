@@ -83,105 +83,105 @@ export const SelectedTrajectory: React.FC<SelectedTrajectoryProps> = ({
   };
 
   return (
-    <div className="w-full bg-white text-slate-900 rounded-[32px] p-5 shadow-2xl border border-slate-900 flex flex-col gap-4 font-sans relative select-none">
+    <div className="w-full bg-white text-slate-900 rounded-[24px] p-4 shadow-xl border border-slate-900 flex flex-col gap-3 font-sans relative select-none">
       {/* Title with Google Material Icon AFTER the headline */}
-      <div className="flex items-center justify-center gap-2">
-        <h2 className="text-2xl font-medium tracking-tight text-slate-800">
+      <div className="flex items-center justify-center gap-1.5">
+        <h2 className="text-xl font-medium tracking-tight text-slate-800">
           Selected Flight Path
         </h2>
-        <span className="material-symbols-outlined text-[22px] text-slate-800 select-none leading-none">
+        <span className="material-symbols-outlined text-[20px] text-slate-800 select-none leading-none">
           route
         </span>
       </div>
 
       {/* Top Blue Pill Capsule */}
-      <div className="bg-[#007eff] text-white rounded-[22px] p-3.5 px-4 flex items-center gap-3 shadow-sm">
-        <span className="text-3xl font-light text-white leading-none pr-1">
+      <div className="bg-[#007eff] text-white rounded-[18px] py-2.5 px-3.5 flex items-center gap-2.5 shadow-xs">
+        <span className="text-2xl font-light text-white leading-none pr-0.5">
           {routeIndex + 1}
         </span>
-        <div className="text-xs sm:text-sm font-normal text-white leading-snug tracking-tight">
+        <div className="text-xs font-normal text-white leading-snug tracking-tight">
           {pathNodes}
         </div>
       </div>
 
       {/* 2x2 Metrics Grid with Trend Arrows for all 4 Parameters */}
-      <div className="grid grid-cols-2 gap-y-4 gap-x-2 pt-0.5">
+      <div className="grid grid-cols-2 gap-y-3 gap-x-2 pt-0.5">
         {/* Metric 1: CO2 Emission */}
-        <div className="flex items-start gap-2.5">
+        <div className="flex items-start gap-2">
           <img
             src="/icons/co2.png"
             alt="CO2"
-            className="w-8 h-8 object-contain shrink-0 mt-0.5"
+            className="w-7 h-7 object-contain shrink-0 mt-0.5"
           />
           <div className="flex flex-col min-w-0">
             <div className="flex items-center gap-1">
-              <span className="text-sm sm:text-base font-normal text-slate-900 tracking-tight truncate">
+              <span className="text-xs sm:text-sm font-normal text-slate-900 tracking-tight truncate">
                 {co2Val}
               </span>
               {renderTrend(route.co2_kg, opt?.co2_kg)}
             </div>
-            <span className="text-[11px] font-normal text-slate-700 mt-0.5">
+            <span className="text-[10px] font-normal text-slate-700 mt-0.5">
               CO2 Emission
             </span>
           </div>
         </div>
 
         {/* Metric 2: Fuel */}
-        <div className="flex items-start gap-2.5">
+        <div className="flex items-start gap-2">
           <img
             src="/icons/fuel.png"
             alt="Fuel"
-            className="w-8 h-8 object-contain shrink-0 mt-0.5"
+            className="w-7 h-7 object-contain shrink-0 mt-0.5"
           />
           <div className="flex flex-col min-w-0">
             <div className="flex items-center gap-1">
-              <span className="text-sm sm:text-base font-normal text-slate-900 tracking-tight truncate">
+              <span className="text-xs sm:text-sm font-normal text-slate-900 tracking-tight truncate">
                 {fuelVal}
               </span>
               {renderTrend(route.fuel_liters, opt?.fuel_liters)}
             </div>
-            <span className="text-[11px] font-normal text-slate-700 mt-0.5">
+            <span className="text-[10px] font-normal text-slate-700 mt-0.5">
               Fuel
             </span>
           </div>
         </div>
 
         {/* Metric 3: Quantum Cost Score */}
-        <div className="flex items-start gap-2.5">
+        <div className="flex items-start gap-2">
           <img
             src="/icons/score.png"
             alt="Quantum Cost"
-            className="w-8 h-8 object-contain shrink-0 mt-0.5"
+            className="w-7 h-7 object-contain shrink-0 mt-0.5"
           />
           <div className="flex flex-col min-w-0">
             <div className="flex items-center gap-1">
-              <span className="text-sm sm:text-base font-normal text-slate-900 tracking-tight truncate">
+              <span className="text-xs sm:text-sm font-normal text-slate-900 tracking-tight truncate">
                 {scoreVal}
               </span>
               {renderTrend(route.total_score, opt?.total_score)}
             </div>
-            <span className="text-[11px] font-normal text-slate-700 mt-0.5">
+            <span className="text-[10px] font-normal text-slate-700 mt-0.5">
               Quantum Cost Score
             </span>
           </div>
         </div>
 
         {/* Metric 4: Distance */}
-        <div className="flex items-start gap-2.5">
+        <div className="flex items-start gap-2">
           <img
             src="/icons/distance.png"
             alt="Distance"
-            className="w-8 h-8 object-contain shrink-0 mt-0.5"
+            className="w-7 h-7 object-contain shrink-0 mt-0.5"
           />
 
           <div className="flex flex-col min-w-0">
             <div className="flex items-center gap-1">
-              <span className="text-sm sm:text-base font-normal text-slate-900 tracking-tight truncate">
+              <span className="text-xs sm:text-sm font-normal text-slate-900 tracking-tight truncate">
                 {distVal}
               </span>
               {renderTrend(route.distance_km, opt?.distance_km)}
             </div>
-            <span className="text-[11px] font-normal text-slate-700 mt-0.5">
+            <span className="text-[10px] font-normal text-slate-700 mt-0.5">
               Distance
             </span>
           </div>
@@ -190,7 +190,7 @@ export const SelectedTrajectory: React.FC<SelectedTrajectoryProps> = ({
 
       {/* Bottom Neon Green Marquee Banner for Optimal Ground State Selection */}
       {isOptimal ? (
-        <div className="w-full overflow-hidden bg-[#00ff1a] text-white py-2 px-2 rounded-xl font-sans text-xs font-normal tracking-wide shadow-sm mt-0.5">
+        <div className="w-full overflow-hidden bg-[#00ff1a] text-white py-1.5 px-2 rounded-xl font-sans text-[11px] font-normal tracking-wide shadow-xs mt-0.5">
           <div className="animate-marquee whitespace-nowrap flex gap-4 items-center">
             <span>Qiskit Minimum Energy Ground State (Optimal) •</span>
             <span>Qiskit Minimum Energy Ground State (Optimal) •</span>
@@ -199,12 +199,13 @@ export const SelectedTrajectory: React.FC<SelectedTrajectoryProps> = ({
           </div>
         </div>
       ) : (
-        <div className="w-full bg-slate-100 text-slate-700 text-center py-2 px-3 rounded-xl font-sans text-xs font-normal tracking-wide mt-0.5">
+        <div className="w-full bg-slate-100 text-slate-700 text-center py-1.5 px-3 rounded-xl font-sans text-xs font-normal tracking-wide mt-0.5">
           Candidate Route Option {routeIndex + 1}
         </div>
       )}
     </div>
   );
+
 };
 
 export default SelectedTrajectory;

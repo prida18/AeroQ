@@ -382,10 +382,11 @@ export const App: React.FC = () => {
              ===================================================================== */}
           <aside
             data-lenis-prevent
-            className="absolute top-5 left-5 z-30 w-[360px] max-w-[calc(100vw-3rem)] max-h-[calc(100%-2.5rem)] overflow-y-auto overscroll-contain hud-scroll flex flex-col gap-3.5 pointer-events-auto pr-1"
+            onWheel={(e) => e.stopPropagation()}
+            className="absolute top-4 left-4 bottom-4 z-30 w-[350px] max-w-[calc(100vw-2rem)] overflow-y-auto overscroll-contain hud-scroll flex flex-col gap-2.5 pointer-events-auto pr-1.5 pb-2"
           >
             {error && (
-              <div className="bg-red-50 text-red-700 border border-red-200 rounded-3xl p-3.5 text-xs font-light shadow-xl">
+              <div className="bg-red-50 text-red-700 border border-red-200 rounded-2xl p-3 text-xs font-light shadow-xl">
                 ⚠️ {error}
               </div>
             )}
@@ -417,26 +418,27 @@ export const App: React.FC = () => {
              ===================================================================== */}
           <aside
             data-lenis-prevent
-            className="absolute top-5 right-5 z-30 flex flex-col gap-3.5 w-80 max-w-[calc(100vw-3rem)] max-h-[calc(100%-2.5rem)] overflow-y-auto overscroll-contain hud-scroll pointer-events-auto pr-1"
+            onWheel={(e) => e.stopPropagation()}
+            className="absolute top-4 right-4 bottom-4 z-30 flex flex-col gap-2.5 w-80 max-w-[calc(100vw-2rem)] overflow-y-auto overscroll-contain hud-scroll pointer-events-auto pr-1.5 pb-2"
           >
             {/* Departure Card - Restored Previous UI + Springy In-Flow Dropdown */}
-            <div className="bg-white/95 text-slate-900 rounded-[28px] p-5 shadow-xl backdrop-blur-xl border border-white/60 font-geist transition-all duration-300 ease-out">
+            <div className="bg-white/95 text-slate-900 rounded-[24px] p-3.5 px-4 shadow-xl backdrop-blur-xl border border-white/60 font-geist transition-all duration-300 ease-out">
               <button
                 onClick={() => setDepDropdownOpen(!depDropdownOpen)}
-                className="w-full flex items-center justify-between font-normal text-base text-slate-700 cursor-pointer"
+                className="w-full flex items-center justify-between font-normal text-sm sm:text-base text-slate-700 cursor-pointer"
               >
                 <div className="flex items-center gap-2">
                   <span>Select Departure</span>
-                  <span className="material-symbols-outlined text-[20px] text-slate-600 select-none leading-none flex items-center justify-center">
+                  <span className="material-symbols-outlined text-[18px] text-slate-600 select-none leading-none flex items-center justify-center">
                     flight_takeoff
                   </span>
                 </div>
-                <ChevronDown size={16} className={`text-slate-600 transition-transform duration-300 ${depDropdownOpen ? 'rotate-180' : ''}`} />
+                <ChevronDown size={15} className={`text-slate-600 transition-transform duration-300 ${depDropdownOpen ? 'rotate-180' : ''}`} />
               </button>
 
-              <div className="mt-2.5 pt-2 border-t border-slate-100 flex flex-col gap-0.5">
+              <div className="mt-2 pt-1.5 border-t border-slate-100 flex flex-col gap-0.5">
                 <span className="text-[10px] font-bold text-slate-400 tracking-wider uppercase">CURRENT</span>
-                <div className="text-base font-semibold text-blue-600">
+                <div className="text-sm font-semibold text-blue-600">
                   {origin} ({airports.find((a) => a.id === origin)?.name.split(' ')[0] || origin})
                 </div>
               </div>
@@ -445,7 +447,7 @@ export const App: React.FC = () => {
                 <div
                   data-lenis-prevent
                   onWheel={(e) => e.stopPropagation()}
-                  className="mt-3 pt-2.5 border-t border-slate-100 max-h-56 overflow-y-auto overscroll-contain hud-scroll flex flex-col gap-1 transition-all duration-300 ease-out"
+                  className="mt-2.5 pt-2 border-t border-slate-100 max-h-48 overflow-y-auto overscroll-contain hud-scroll flex flex-col gap-1 transition-all duration-300 ease-out"
                 >
                   {airports.map((ap) => (
                     <button
@@ -454,7 +456,7 @@ export const App: React.FC = () => {
                         setOrigin(ap.id);
                         setDepDropdownOpen(false);
                       }}
-                      className={`w-full text-left px-3 py-2 rounded-xl text-xs transition duration-150 cursor-pointer ${origin === ap.id ? 'bg-blue-600 text-white font-medium shadow-sm' : 'hover:bg-slate-100 text-slate-700 font-normal'
+                      className={`w-full text-left px-3 py-1.5 rounded-xl text-xs transition duration-150 cursor-pointer ${origin === ap.id ? 'bg-blue-600 text-white font-medium shadow-sm' : 'hover:bg-slate-100 text-slate-700 font-normal'
                         }`}
                     >
                       <span className="font-semibold">{ap.id}</span> ({ap.name})
@@ -465,23 +467,23 @@ export const App: React.FC = () => {
             </div>
 
             {/* Destination Card - Restored Previous UI + Springy In-Flow Dropdown */}
-            <div className="bg-white/95 text-slate-900 rounded-[28px] p-5 shadow-xl backdrop-blur-xl border border-white/60 font-geist transition-all duration-300 ease-out">
+            <div className="bg-white/95 text-slate-900 rounded-[24px] p-3.5 px-4 shadow-xl backdrop-blur-xl border border-white/60 font-geist transition-all duration-300 ease-out">
               <button
                 onClick={() => setDestDropdownOpen(!destDropdownOpen)}
-                className="w-full flex items-center justify-between font-normal text-base text-slate-700 cursor-pointer"
+                className="w-full flex items-center justify-between font-normal text-sm sm:text-base text-slate-700 cursor-pointer"
               >
                 <div className="flex items-center gap-2">
                   <span>Select Destination</span>
-                  <span className="material-symbols-outlined text-[20px] text-slate-600 select-none leading-none flex items-center justify-center">
+                  <span className="material-symbols-outlined text-[18px] text-slate-600 select-none leading-none flex items-center justify-center">
                     flight_land
                   </span>
                 </div>
-                <ChevronDown size={16} className={`text-slate-600 transition-transform duration-300 ${destDropdownOpen ? 'rotate-180' : ''}`} />
+                <ChevronDown size={15} className={`text-slate-600 transition-transform duration-300 ${destDropdownOpen ? 'rotate-180' : ''}`} />
               </button>
 
-              <div className="mt-2.5 pt-2 border-t border-slate-100 flex flex-col gap-0.5">
+              <div className="mt-2 pt-1.5 border-t border-slate-100 flex flex-col gap-0.5">
                 <span className="text-[10px] font-bold text-slate-400 tracking-wider uppercase">TARGET</span>
-                <div className="text-base font-semibold text-blue-600">
+                <div className="text-sm font-semibold text-blue-600">
                   {destination} ({airports.find((a) => a.id === destination)?.name.split(' ')[0] || destination})
                 </div>
               </div>
@@ -490,7 +492,7 @@ export const App: React.FC = () => {
                 <div
                   data-lenis-prevent
                   onWheel={(e) => e.stopPropagation()}
-                  className="mt-3 pt-2.5 border-t border-slate-100 max-h-56 overflow-y-auto overscroll-contain hud-scroll flex flex-col gap-1 transition-all duration-300 ease-out"
+                  className="mt-2.5 pt-2 border-t border-slate-100 max-h-48 overflow-y-auto overscroll-contain hud-scroll flex flex-col gap-1 transition-all duration-300 ease-out"
                 >
                   {airports.map((ap) => (
                     <button
@@ -499,7 +501,7 @@ export const App: React.FC = () => {
                         setDestination(ap.id);
                         setDestDropdownOpen(false);
                       }}
-                      className={`w-full text-left px-3 py-2 rounded-xl text-xs transition duration-150 cursor-pointer ${destination === ap.id ? 'bg-blue-600 text-white font-medium shadow-sm' : 'hover:bg-slate-100 text-slate-700 font-normal'
+                      className={`w-full text-left px-3 py-1.5 rounded-xl text-xs transition duration-150 cursor-pointer ${destination === ap.id ? 'bg-blue-600 text-white font-medium shadow-sm' : 'hover:bg-slate-100 text-slate-700 font-normal'
                         }`}
                     >
                       <span className="font-semibold">{ap.id}</span> ({ap.name})
@@ -513,6 +515,7 @@ export const App: React.FC = () => {
             <Trajectories
               candidates={candidatesForGlobe}
               selectedIndex={activeRouteIdx}
+
               onSelectRoute={(idx) => setSelectedRouteIndex(idx)}
             />
           </aside>

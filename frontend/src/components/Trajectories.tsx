@@ -30,16 +30,17 @@ export const Trajectories: React.FC<TrajectoriesProps> = ({
   }, [selectedIndex, candidates]);
 
   return (
-    <div className="w-full bg-white/95 text-slate-900 rounded-[28px] p-5 shadow-xl backdrop-blur-xl border border-white/60 flex flex-col font-geist transition-all duration-300 ease-out select-none">
+    <div className="w-full bg-white/95 text-slate-900 rounded-[24px] p-4 shadow-xl backdrop-blur-xl border border-white/60 flex flex-col font-geist transition-all duration-300 ease-out select-none">
       {/* Title with plane.png icon (Medium font weight) */}
-      <div className="flex items-center justify-center gap-2.5 mb-4">
-        <h2 className="text-2xl font-medium tracking-tight text-slate-800">Flight Paths</h2>
+      <div className="flex items-center justify-center gap-2 mb-2.5">
+        <h2 className="text-xl font-medium tracking-tight text-slate-800">Flight Paths</h2>
         <img
           src="/icons/plane.png"
           alt="Flight Paths"
           className="w-3.5 h-3.5 object-contain"
         />
       </div>
+
 
       {/* Column Headers (Medium/Thin font weight) */}
       <div className="grid grid-cols-[38px_1fr_1.15fr_1.05fr] text-center text-slate-500 font-medium text-xs mb-2.5 px-2 gap-2">
