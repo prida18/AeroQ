@@ -10,4 +10,5 @@ services:
       - key: PYTHON_VERSION
         value: 3.10.12
       - key: NODE_VERSION
-        value: 20.10.0
+        value: 22.12.0
+
