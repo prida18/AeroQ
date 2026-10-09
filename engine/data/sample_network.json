@@ -1,0 +1,128 @@
+{
+  "nodes": [
+    {
+      "id": "DEL",
+      "name": "Delhi Airport",
+      "type": "airport",
+      "latitude": 28.5562,
+      "longitude": 77.1000
+    },
+    {
+      "id": "A",
+      "name": "Waypoint Alpha (Jaipur Sector)",
+      "type": "waypoint",
+      "latitude": 26.9000,
+      "longitude": 75.8000
+    },
+    {
+      "id": "B",
+      "name": "Waypoint Bravo (Udaipur Sector)",
+      "type": "waypoint",
+      "latitude": 24.5000,
+      "longitude": 73.7000
+    },
+    {
+      "id": "C",
+      "name": "Waypoint Charlie (Gwalior Sector)",
+      "type": "waypoint",
+      "latitude": 26.2000,
+      "longitude": 78.1000
+    },
+    {
+      "id": "D",
+      "name": "Waypoint Delta (Indore Sector)",
+      "type": "waypoint",
+      "latitude": 22.7000,
+      "longitude": 75.8000
+    },
+    {
+      "id": "BOM",
+      "name": "Mumbai Airport",
+      "type": "airport",
+      "latitude": 19.0896,
+      "longitude": 72.8656
+    }
+  ],
+  "edges": [
+    {
+      "from": "DEL",
+      "to": "A",
+      "distance_km": 240.0,
+      "fuel_liters": 960.0,
+      "co2_kg": 2419.0,
+      "weather_penalty": 2.0,
+      "congestion_penalty": 8.0,
+      "restricted": false
+    },
+    {
+      "from": "DEL",
+      "to": "C",
+      "distance_km": 280.0,
+      "fuel_liters": 1120.0,
+      "co2_kg": 2822.0,
+      "weather_penalty": 7.0,
+      "congestion_penalty": 3.0,
+      "restricted": false
+    },
+    {
+      "from": "A",
+      "to": "B",
+      "distance_km": 320.0,
+      "fuel_liters": 1280.0,
+      "co2_kg": 3225.0,
+      "weather_penalty": 3.0,
+      "congestion_penalty": 4.0,
+      "restricted": false
+    },
+    {
+      "from": "A",
+      "to": "C",
+      "distance_km": 260.0,
+      "fuel_liters": 1040.0,
+      "co2_kg": 2620.0,
+      "weather_penalty": 8.0,
+      "congestion_penalty": 2.0,
+      "restricted": false
+    },
+    {
+      "from": "C",
+      "to": "D",
+      "distance_km": 450.0,
+      "fuel_liters": 1800.0,
+      "co2_kg": 4536.0,
+      "weather_penalty": 4.0,
+      "congestion_penalty": 6.0,
+      "restricted": false
+    },
+    {
+      "from": "B",
+      "to": "D",
+      "distance_km": 290.0,
+      "fuel_liters": 1160.0,
+      "co2_kg": 2923.0,
+      "weather_penalty": 1.0,
+      "congestion_penalty": 2.0,
+      "restricted": false
+    },
+    {
+      "from": "B",
+      "to": "BOM",
+      "distance_km": 610.0,
+      "fuel_liters": 2440.0,
+      "co2_kg": 6148.0,
+      "weather_penalty": 5.0,
+      "congestion_penalty": 9.0,
+      "restricted": false
+    },
+    {
+      "from": "D",
+      "to": "BOM",
+      "distance_km": 510.0,
+      "fuel_liters": 2040.0,
+      "co2_kg": 5140.0,
+      "weather_penalty": 2.0,
+      "congestion_penalty": 3.0,
+      "restricted": false
+    }
+  ]
+}

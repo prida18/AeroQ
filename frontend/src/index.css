@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100;200;300;400;500;600;700;800;900&family=Geist+Mono:wght@100;300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
+
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined' !important;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 20px;
+  line-height: 1;
+  display: inline-block;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+}
+
+:root {
+  --bg-main: #030712;
+  --text-main: #f8fafc;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Geist', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #030712;
+  color: #f8fafc;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Fullscreen 3D Globe Wrapper */
+.map-globe-wrapper {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: #020617;
+}
+
+/* Custom Minimal Scrollbar for Left HUD Panel */
+.hud-scroll {
+  overscroll-behavior: contain;
+}
+.hud-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+.hud-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.hud-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 4px;
+}
+
+.maptiler-sdk-map, .mapboxgl-map, .maplibregl-map {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Range input styling */
+input[type="range"] {
+  width: 100%;
+  accent-color: #3b82f6;
+  cursor: pointer;
+}
+
+/* Airport Marker: Red location_on pin + Thin Geist White Code (No Glow) */
+.simple-airport-marker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: translate(-50%, -100%);
+  pointer-events: none;
+  user-select: none;
+  z-index: 20;
+}
+
+.simple-airport-code {
+  color: #ffffff;
+  font-family: 'Geist', sans-serif;
+  font-size: 13px;
+  font-weight: 200;
+  letter-spacing: 0.08em;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+  white-space: nowrap;
+  line-height: 1.2;
+}
+
+.airport-red-location-icon {
+  width: 18px;
+  height: 18px;
+  color: #ef4444;
+  fill: #ef4444;
+  display: block;
+}
+
+.simple-airport-weather {
+  font-family: 'Geist', sans-serif;
+  font-size: 10px;
+  font-weight: 300;
+  color: #cbd5e1;
+  background: rgba(15, 23, 42, 0.8);
+  padding: 1px 5px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 2px;
+  white-space: nowrap;
+}
+
+/* Waypoint Marker: location_on pin + Small Code */
+.simple-waypoint-marker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: translate(-50%, -100%);
+  pointer-events: none;
+  user-select: none;
+  z-index: 15;
+}
+
+.waypoint-location-icon {
+  width: 13px;
+  height: 13px;
+  color: #94a3b8;
+  fill: #94a3b8;
+  display: block;
+}
+
+.simple-waypoint-code {
+  font-family: 'Geist', sans-serif;
+  font-size: 9px;
+  font-weight: 300;
+  color: #94a3b8;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* Airspace Traffic Aircraft (Static SVG logo pinned to map coordinates like clouds) */
+.traffic-aircraft-marker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  user-select: none;
+  z-index: 1 !important;
+}
+
+.traffic-plane-rotator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.traffic-plane-icon {
+  width: 14px;
+  height: 14px;
+  display: block;
+}
+
+/* Atmospheric Weather Clouds (using local Cloud PNGs from public/clouds) */
+.map-cloud-marker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  user-select: none;
+  z-index: 6;
+}
+
+.map-cloud-img {
+  display: block;
+  object-fit: contain;
+  pointer-events: none;
+  user-select: none;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+/* Continuous Horizontal Marquee Animation for Optimal Ground State Banner */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 14s linear infinite;
+}
+
+
+
+
+
+
+

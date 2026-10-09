@@ -1,0 +1,10 @@
+networkx>=3.0
+pydantic>=2.0
+scipy>=1.10.0
+qiskit>=1.0.0
+qiskit-algorithms>=0.3.0
+qiskit-optimization>=0.6.0
+qiskit-aer>=0.13.0
+requests>=2.28.0
+fastapi>=0.100.0
+uvicorn>=0.22.0
