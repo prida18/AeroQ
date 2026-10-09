@@ -110,8 +110,10 @@ export async function fetchLiveAirTraffic(
   try {
     const fr24Url = `/fr24/zones/fcgi/feed.js?bounds=${maxLat.toFixed(2)},${minLat.toFixed(2)},${minLon.toFixed(2)},${maxLon.toFixed(2)}`;
     const res = await fetch(fr24Url, { headers: { Accept: 'application/json' } });
-    if (res.ok) {
+    const isJson = res.headers.get('content-type')?.includes('json');
+    if (res.ok && isJson) {
       const data = await res.json();
+
       const flights: LiveFlight[] = [];
 
       for (const [key, v] of Object.entries(data)) {

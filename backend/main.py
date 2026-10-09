@@ -64,8 +64,26 @@ def get_airports():
 def get_aircraft():
     return [ac.model_dump() for ac in AIRCRAFT_DATABASE.values()]
 
+@app.get("/fr24/zones/fcgi/feed.js")
+def proxy_fr24_direct(bounds: str = ""):
+    import requests
+    url = f"https://data-cloud.flightradar24.com/zones/fcgi/feed.js?bounds={bounds}"
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
+        "Referer": "https://www.flightradar24.com/"
+    }
+    try:
+        resp = requests.get(url, headers=headers, timeout=3.5)
+        if resp.status_code == 200:
+            return resp.json()
+    except Exception:
+        pass
+    return {}
+
+
 @app.get("/api/live-airtraffic")
 def get_live_airtraffic(
+
     min_lat: float = 10.0,
     max_lat: float = 40.0,
     min_lon: float = 35.0,
