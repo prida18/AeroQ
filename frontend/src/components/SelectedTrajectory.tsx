@@ -109,7 +109,7 @@ export const SelectedTrajectory: React.FC<SelectedTrajectoryProps> = ({
         {/* Metric 1: CO2 Emission */}
         <div className="flex items-start gap-2.5">
           <img
-            src="/icons/image 7 (1).png"
+            src="/icons/co2.png"
             alt="CO2"
             className="w-8 h-8 object-contain shrink-0 mt-0.5"
           />
@@ -129,7 +129,7 @@ export const SelectedTrajectory: React.FC<SelectedTrajectoryProps> = ({
         {/* Metric 2: Fuel */}
         <div className="flex items-start gap-2.5">
           <img
-            src="/icons/image 9.png"
+            src="/icons/fuel.png"
             alt="Fuel"
             className="w-8 h-8 object-contain shrink-0 mt-0.5"
           />
@@ -149,7 +149,7 @@ export const SelectedTrajectory: React.FC<SelectedTrajectoryProps> = ({
         {/* Metric 3: Quantum Cost Score */}
         <div className="flex items-start gap-2.5">
           <img
-            src="/icons/image 8.png"
+            src="/icons/score.png"
             alt="Quantum Cost"
             className="w-8 h-8 object-contain shrink-0 mt-0.5"
           />
@@ -169,10 +169,11 @@ export const SelectedTrajectory: React.FC<SelectedTrajectoryProps> = ({
         {/* Metric 4: Distance */}
         <div className="flex items-start gap-2.5">
           <img
-            src="/icons/image 10.png"
+            src="/icons/distance.png"
             alt="Distance"
             className="w-8 h-8 object-contain shrink-0 mt-0.5"
           />
+
           <div className="flex flex-col min-w-0">
             <div className="flex items-center gap-1">
               <span className="text-sm sm:text-base font-normal text-slate-900 tracking-tight truncate">

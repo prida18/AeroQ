@@ -33,10 +33,11 @@ app.add_middleware(
 )
 
 FRONTEND_DIST = Path(__file__).parent.parent / "frontend" / "dist"
-if (FRONTEND_DIST / "assets").exists():
-    app.mount("/assets", StaticFiles(directory=str(FRONTEND_DIST / "assets")), name="assets")
-if (FRONTEND_DIST / "models").exists():
-    app.mount("/models", StaticFiles(directory=str(FRONTEND_DIST / "models")), name="models")
+if FRONTEND_DIST.exists():
+    for subpath in FRONTEND_DIST.iterdir():
+        if subpath.is_dir():
+            app.mount(f"/{subpath.name}", StaticFiles(directory=str(subpath)), name=subpath.name)
+
 
 airport_provider = RealAirportDatasetProvider()
 weather_provider = OpenMeteoWeatherProvider()
@@ -382,9 +383,15 @@ def get_live_corridor_data(origin: str = "BOM", destination: str = "DXB"):
 
 
 @app.get("/")
-def serve_dashboard():
-    """Serves the compiled React production frontend or development fallback."""
+@app.get("/{full_path:path}")
+def serve_dashboard(full_path: str = ""):
+    """Serves root static files, compiled React production frontend, or fallback."""
+    if full_path:
+        target = FRONTEND_DIST / full_path
+        if target.is_file():
+            return FileResponse(target)
     index_file = FRONTEND_DIST / "index.html"
     if index_file.exists():
         return FileResponse(index_file)
     return {"message": "AeroQ Quantum API is online. Please build frontend or use Vite dev server."}
+
