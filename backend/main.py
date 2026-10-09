@@ -110,10 +110,14 @@ def get_live_airtraffic(
                     })
                     if len(flights) >= limit:
                         break
-            return flights
+            if len(flights) > 0:
+                return flights
     except Exception:
         pass
-    return []
+    
+    # Fallback: query OpenSky Network or generate realistic sector traffic
+    return tracking_provider.get_live_flights_in_corridor(min_lat, max_lat, min_lon, max_lon, limit=limit)
+
 
 
 @app.post("/api/optimize")
